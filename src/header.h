@@ -18,7 +18,15 @@
 # include <stdlib.h> // For malloc, free, exit
 # include <unistd.h> // For getpid and pause
 
-size_t	ft_strlen(const char *s);
-int		ft_printf(const char *format, ...);
+typedef struct s_message_state
+{
+	char	*message;
+	int		bit_count;
+	char	current_char;
+	int		char_index;
+}			t_message_state;
+
+size_t		ft_strlen(const char *s);
+int			ft_printf(const char *format, ...);
 
 #endif
