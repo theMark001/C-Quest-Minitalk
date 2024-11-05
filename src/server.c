@@ -41,8 +41,9 @@ void	handle_sigusr(int sig)
 
 int	main(void)
 {
+	struct sigaction	sa;
+
 	message = malloc(1024);
-	struct sigaction sa;
 	sa.sa_handler = handle_sigusr;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = 0;
