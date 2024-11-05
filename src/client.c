@@ -6,7 +6,7 @@
 /*   By: marksylaiev <marksylaiev@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:02:28 by marksylaiev       #+#    #+#             */
-/*   Updated: 2024/11/05 21:18:44 by marksylaiev      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:35:50 by marksylaiev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	send_char(pid_t pid, char c)
 {
 	int	bit;
-
 	for (int i = 7; i >= 0; --i)
 	{
 		bit = (c >> i) & 1;
@@ -31,21 +30,19 @@ void	send_char(pid_t pid, char c)
 	}
 }
 
+
 int	main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
-		fprintf(stderr, "Usage: %s <PID> <message>\n", argv[0]);
+		ft_printf("Usage: %s <PID> <message>\n", argv[0]);
 		return (1);
 	}
-
 	pid_t target_pid = atoi(argv[1]);
 	char *message = argv[2];
-
-	for (size_t i = 0; i <= strlen(message); ++i)
+	for (size_t i = 0; i <= ft_strlen(message); ++i)
 	{
 		send_char(target_pid, message[i]);
 	}
-
 	return (0);
 }

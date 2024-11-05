@@ -6,7 +6,7 @@
 /*   By: marksylaiev <marksylaiev@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:02:45 by marksylaiev       #+#    #+#             */
-/*   Updated: 2024/11/05 21:18:24 by marksylaiev      ###   ########.fr       */
+/*   Updated: 2024/11/05 21:35:47 by marksylaiev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	handle_sigusr(int sig)
 	{
 		if (current_char == '\0')
 		{
-			printf("Received message: %s\n", message);
+			ft_printf("Received message: %s\n", message);
 			free(message);
 			exit(0);
 		}
@@ -42,21 +42,17 @@ void	handle_sigusr(int sig)
 int	main(void)
 {
 	message = malloc(1024);
-
 	struct sigaction sa;
 	sa.sa_handler = handle_sigusr;
 	sigemptyset(&sa.sa_mask);
 	sa.sa_flags = 0;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-
-	printf("Receiver PID: %d\n", getpid());
-	printf("Waiting for message...\n");
-
+	ft_printf("Receiver PID: %d\n", getpid());
+	ft_printf("Waiting for message...\n");
 	while (1)
 	{
 		pause();
 	}
-
 	return (0);
 }
