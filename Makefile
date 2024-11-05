@@ -1,8 +1,8 @@
 # Vars
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SERVER = server
-CLIENT = client
+CFLAGS = #-Wall -Wextra -Werror
+SERVER = my_server
+CLIENT = my_client
 SRCDIR = src
 OBJDIR = obj
 SRC = server.c client.c
