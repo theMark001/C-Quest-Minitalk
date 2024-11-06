@@ -6,7 +6,7 @@
 /*   By: marksylaiev <marksylaiev@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 20:02:45 by marksylaiev       #+#    #+#             */
-/*   Updated: 2024/11/05 22:00:05 by marksylaiev      ###   ########.fr       */
+/*   Updated: 2024/11/06 01:18:01 by marksylaiev      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	handle_sigusr(int sig, t_message_state *state)
 	{
 		if (state->current_char == '\0')
 		{
-			printf("Received message: %s\n", state->message);
+			ft_printf("Received message: %s\n", state->message);
 			free(state->message);
 			exit(0);
 		}
@@ -57,8 +57,8 @@ int	main(void)
 	sa.sa_flags = 0;
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
-	printf("Receiver PID: %d\n", getpid());
-	printf("Waiting for message...\n");
+	ft_printf("Receiver PID: %d\n", getpid());
+	ft_printf("Waiting for message...\n");
 	while (1)
 	{
 		pause();

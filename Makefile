@@ -1,6 +1,6 @@
 # Vars
 CC = cc
-CFLAGS = # -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SERVER = my_server
 CLIENT = my_client
 SRCDIR = src
